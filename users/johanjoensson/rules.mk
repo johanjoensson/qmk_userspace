@@ -3,7 +3,7 @@ INTROSPECTION_KEYMAP_C = johanjoensson.c
 
 ifeq ($(strip $(RGBLIGHT_ENABLE)), yes)
   # Include my fancy rgb functions source here
-  # SRC += rgb_led.c
+  SRC += rgb_led.c
 endif
 ifeq ($(strip $(OLED_ENABLE)), yes)
   # Include my fancy OLED functions source here
