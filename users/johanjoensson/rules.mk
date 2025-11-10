@@ -13,6 +13,10 @@ ifdef RIGHT_ANIMATION
   SRC += animation.c
 endif
 endif
+ifeq ($(strip $(KEY_OVERRIDE_ENABLE)), yes)
+  # Include my fancy key_overrides source here
+  # SRC += key_overrides.c
+endif
 ifeq ($(strip $(LEADER_ENABLE)), yes)
   # Include my fancy leader functions source here
   SRC += leader.c

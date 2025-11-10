@@ -1,4 +1,4 @@
-/* #include QMK_KEYBOARD_H */
+#include QMK_KEYBOARD_H
 #include "johanjoensson.h"
 #ifndef CAPS_WORD_ENABLE
 #include "features/casemodes.h"
@@ -12,6 +12,11 @@
 #include "tapdance.c"
 #endif
 
+#ifdef KEY_OVERRIDE_ENABLE
+#include "key_overrides.c"
+#else
+        static bool delkey_registered;
+#endif
 /*
  * Custom keycode handling
  */
@@ -150,9 +155,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                                 return false;
                         }
                         break;
+#ifndef KEY_OVERRIDE_ENABLE
                 // Left Shift + Backspace gives Delete
                 case KC_BSPC:
-                        static bool delkey_registered;
                         if (record->event.pressed) {
                                 if (mod_state & MOD_MASK_SHIFT) {
                                         del_mods(MOD_MASK_SHIFT);
@@ -169,6 +174,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                                 }
                         }
                         break;
+#endif
                 /* Custom keycode for setting both CONTROL and SHIFT */
                 case CC_CLSH:
                         if (record->event.pressed) {

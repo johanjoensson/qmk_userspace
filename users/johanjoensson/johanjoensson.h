@@ -58,6 +58,3 @@ enum layer_names { _BASE = 0, _COLEMAK_DH, _UCIS, _SYMBOLS, _NUMPAD, _NAV, _FUNC
 #else
 #    include "tapdance.h"
 #endif
-// #ifdef COMBO_ENABLE
-// #    include "combos.h"
-// #endif
