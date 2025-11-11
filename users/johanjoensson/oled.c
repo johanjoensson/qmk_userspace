@@ -3,7 +3,7 @@
 
 #define ANIM_FRAME_TIME 100
 
-void render_space(void) {
+void my_render_space(void) {
 #ifdef OLED_DISPLAY_128X64
     oled_write_P(PSTR("                     "), false);
 #endif
@@ -44,7 +44,7 @@ void render_large_logo(void)
     oled_write_raw_P(logo, sizeof(logo));
 }
 
-void render_mod_status_gui_alt(uint8_t modifiers) {
+void my_render_mod_status_gui_alt(uint8_t modifiers) {
     static const char PROGMEM gui_off_1[] = {0x85, 0x86, 0};
     static const char PROGMEM gui_off_2[] = {0xa5, 0xa6, 0};
     static const char PROGMEM gui_on_1[] = {0x8d, 0x8e, 0};
@@ -118,7 +118,7 @@ void render_mod_status_gui_alt(uint8_t modifiers) {
     }
 }
 
-void render_mod_status_ctrl_shift(uint8_t modifiers) {
+void my_render_mod_status_ctrl_shift(uint8_t modifiers) {
     static const char PROGMEM ctrl_off_1[] = {0x89, 0x8a, 0};
     static const char PROGMEM ctrl_off_2[] = {0xa9, 0xaa, 0};
     static const char PROGMEM ctrl_on_1[] = {0x91, 0x92, 0};
@@ -192,7 +192,7 @@ void render_mod_status_ctrl_shift(uint8_t modifiers) {
     }
 }
 
-void render_logo(void)
+void my_render_logo(void)
 {
 #include "logo_small.c"
     oled_set_cursor(0, 6);
@@ -217,12 +217,12 @@ void render_small_animation(void)
     oled_set_cursor(0, 4);
 }
 
-void render_logo_text(void) {
+void my_render_logo_text(void) {
 #include "logo_string.c"
     oled_write_P(PSTR(logo_string), false);
 }
 
-void render_kb_LED_state(void) {
+void my_render_kb_LED_state(void) {
 #ifdef OLED_DISPLAY_128X64
     oled_set_cursor(0, 5);
 #endif
@@ -240,7 +240,7 @@ void render_kb_LED_state(void) {
 #endif
 }
 
-void render_layer_state(void) {
+void my_render_layer_state(void) {
 #ifdef OLED_DISPLAY_128X64
     oled_set_cursor(0, 4);
     oled_write_P(PSTR("Layer:"), false);
@@ -267,32 +267,29 @@ void render_layer_state(void) {
 }
 
 
-bool oled_task_kb(void) {
-    if (!oled_task_user()) {
-        return false;
-    }
+bool oled_task_user(void) {
     if (is_keyboard_master()) {
 #ifdef OLED_DISPLAY_128X64
-        render_logo();
-        render_mod_status_gui_alt(get_mods()|get_oneshot_mods());
-        render_mod_status_ctrl_shift(get_mods()|get_oneshot_mods());
-        render_layer_state();
-        render_kb_LED_state();
+        my_render_logo();
+        my_render_mod_status_gui_alt(get_mods()|get_oneshot_mods());
+        my_render_mod_status_ctrl_shift(get_mods()|get_oneshot_mods());
+        my_render_layer_state();
+        my_render_kb_LED_state();
 #endif
 #ifdef OLED_DISPLAY_128X32
         render_small_animation();
-        render_logo_text();
-        render_space();
-        render_mod_status_gui_alt(get_mods()|get_oneshot_mods());
-        render_mod_status_ctrl_shift(get_mods()|get_oneshot_mods());
-        render_space();
-        render_layer_state();
-        render_space();
-        render_kb_LED_state();
+        my_render_logo_text();
+        my_render_space();
+        my_render_mod_status_gui_alt(get_mods()|get_oneshot_mods());
+        my_render_mod_status_ctrl_shift(get_mods()|get_oneshot_mods());
+        my_render_space();
+        my_render_layer_state();
+        my_render_space();
+        my_render_kb_LED_state();
 #endif
     } else {
 #ifdef RIGHT_ANIMATION
-         render_logo();
+         my_render_logo();
          render_animation();
 #else
          render_large_logo();
