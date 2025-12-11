@@ -61,6 +61,7 @@ enum {
     TD_PIPE_TILD,
     TD_SYM,
     TD_NUM,
+    TD_MOUSE,
     TD_CAPWORD,
 };
 

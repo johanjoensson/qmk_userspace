@@ -26,7 +26,7 @@ combo_t key_combos[] = {
     [SD_ESC] = COMBO(sd_combo, KC_ESC),      [RS_ESC] = COMBO(rs_cdf_combo, KC_ESC),
 #endif
 
-    [UI_BSP] = COMBO(ui_combo, KC_BSPC),     [JK_ENT] = COMBO(jk_combo, KC_ENT),      [IO_ARIN] = COMBO(io_combo, CC_ARIN),     [KL_ADIA] = COMBO(kl_combo, CC_ADIA),     [LSCLN_ODIA] = COMBO(lscln_combo, CC_ODIA),
+    [UI_BSP] = COMBO(ui_combo, KC_BSPC),     [IO_ARIN] = COMBO(io_combo, CC_ARIN),     [KL_ADIA] = COMBO(kl_combo, CC_ADIA),     [LSCLN_ODIA] = COMBO(lscln_combo, CC_ODIA),
 
-    [LU_BSP] = COMBO(lu_cdf_combo, KC_BSPC), [NE_ENT] = COMBO(ne_cdf_combo, KC_ENT),  [UY_ARIN] = COMBO(uy_cdf_combo, CC_ARIN), [EI_ADIA] = COMBO(ei_cdf_combo, CC_ADIA), [IO_ODIA] = COMBO(io_cdf_combo, CC_ODIA),
+    [LU_BSP] = COMBO(lu_cdf_combo, KC_BSPC), [UY_ARIN] = COMBO(uy_cdf_combo, CC_ARIN), [EI_ADIA] = COMBO(ei_cdf_combo, CC_ADIA), [IO_ODIA] = COMBO(io_cdf_combo, CC_ODIA),
 };
