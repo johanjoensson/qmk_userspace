@@ -5,6 +5,10 @@ ifeq ($(strip $(RGBLIGHT_ENABLE)), yes)
   # Include my fancy rgb functions source here
   SRC += rgb_led.c
 endif
+ifeq ($(strip $(RGB_MATRIX_ENABLE)), yes)
+  # Include my fancy rgb functions source here
+  SRC += rgb_matrix.c
+endif
 ifeq ($(strip $(OLED_ENABLE)), yes)
   # Include my fancy OLED functions source here
   SRC += oled.c

@@ -23,12 +23,12 @@ OLED_ENABLE = yes
 # RGB Matrix is enabled at the revision level,
 # while we use the regular RGB underglow for testing
 LED_MATRIX_ENABLE = no
-RGB_MATRIX_ENABLE = no
-RGBLIGHT_ENABLE = yes
+RGB_MATRIX_ENABLE = yes
+RGBLIGHT_ENABLE = no
 BACKLIGHT_ENABLE = no
 WS2812_DRIVER = vendor
 
-KEY_OVERRIDE_ENABLE = yes
+# KEY_OVERRIDE_ENABLE = yes
 DYNAMIC_TAPPING_TERM_ENABLE = yes
 TAP_DANCE_ENABLE = yes
 LEADER_ENABLE = yes

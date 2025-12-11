@@ -6,15 +6,15 @@ const uint16_t PROGMEM ui_combo[]    = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM jk_combo[]    = {HOME_J, KC_K, COMBO_END};
 const uint16_t PROGMEM io_combo[]    = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM kl_combo[]    = {KC_K, HOME_L, COMBO_END};
-const uint16_t PROGMEM lscln_combo[] = {HOME_L, HOME_SCLN, COMBO_END};
+const uint16_t PROGMEM lscln_combo[] = {HOME_L, KC_SCLN, COMBO_END};
 
 const uint16_t PROGMEM wf_cdf_combo[] = {KC_W, KC_F, COMBO_END};
-const uint16_t PROGMEM rs_cdf_combo[] = {HOME_R, KC_S, COMBO_END};
+const uint16_t PROGMEM rs_cdf_combo[] = {CDH_HOME_R, KC_S, COMBO_END};
 const uint16_t PROGMEM lu_cdf_combo[] = {KC_L, KC_U, COMBO_END};
-const uint16_t PROGMEM ne_cdf_combo[] = {HOME_N, KC_E, COMBO_END};
+const uint16_t PROGMEM ne_cdf_combo[] = {CDH_HOME_N, KC_E, COMBO_END};
 const uint16_t PROGMEM uy_cdf_combo[] = {KC_U, KC_Y, COMBO_END};
-const uint16_t PROGMEM ei_cdf_combo[] = {KC_E, HOME_I, COMBO_END};
-const uint16_t PROGMEM io_cdf_combo[] = {HOME_I, HOME_O, COMBO_END};
+const uint16_t PROGMEM ei_cdf_combo[] = {KC_E, CDH_HOME_I, COMBO_END};
+const uint16_t PROGMEM io_cdf_combo[] = {CDH_HOME_I, CDH_HOME_O, COMBO_END};
 
 combo_t key_combos[] = {
     [WE_TAB] = COMBO(we_combo, KC_TAB),      [WF_TAB] = COMBO(wf_cdf_combo, KC_TAB),

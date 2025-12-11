@@ -258,6 +258,9 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
 #ifdef RGBLIGHT_ENABLE
     rgblight_set_layer_state(_BASE, layer_state_cmp(state, _BASE));
 #endif
+#    ifdef CHARYBDIS_AUTO_SNIPING_ON_LAYER
+    charybdis_set_pointer_sniping_enabled(layer_state_cmp(state, CHARYBDIS_AUTO_SNIPING_ON_LAYER));
+#endif
     return state;
 }
 
