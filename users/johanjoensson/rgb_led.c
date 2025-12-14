@@ -5,14 +5,6 @@
 uint8_t bg_h = 255, bg_s = 255, bg_v = 255, kl_h = 255, kl_s = 255, kl_v = 255;
 uint8_t hue_step = 17, val_step = 8, sat_step = 17;
 
-void keyboard_pre_init_user(void) {
-  // Set our LED pin as output
-  setPinOutput(24);
-  // Turn the LED off
-  // (Due to technical reasons, high is off and low is on)
-  writePinHigh(24);
-}
-
 const rgblight_segment_t PROGMEM capslock_indicator[] = RGBLIGHT_LAYER_SEGMENTS(
     {RGB_MATRIX_LED_COUNT/2 - 1, 1, HSV_RED},       // Light 1 LED, starting with LED 22
     {RGB_MATRIX_LED_COUNT - 2, 1, HSV_RED}       // Light 1 LED, starting with LED 45

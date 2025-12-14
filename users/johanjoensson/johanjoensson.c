@@ -205,23 +205,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 case KC_ESC:
                         if (record->event.pressed && get_highest_layer(layer_state) == _UCIS){
                                 layer_off(_UCIS);
+                                return false;
+                        }else{
                         }
                         break;
 
                 case KC_SPC:
                         if (record->event.pressed && get_highest_layer(layer_state) == _UCIS){
                                 layer_off(_UCIS);
+                                return false;
                         }
 #ifdef CAPS_WORD_ENABLE
                         if (is_caps_word_on()){
                                 if (record->event.pressed){
                                         unregister_code16(KC_SPC);
                                         register_code16(KC_UNDS);
-                                        /* return false; */
                                 }else{
                                         unregister_code16(KC_UNDS);
-                                        /* return false; */
                                 }
+                                return false;
                         }
 #else
                 case CAPWORD:

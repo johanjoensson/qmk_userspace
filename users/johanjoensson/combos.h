@@ -1,11 +1,13 @@
 #pragma once
 #include QMK_KEYBOARD_H
 
+#define COMBO_REF_DEFAULT 0
+
 enum combos {
     WE_TAB,
     SD_ESC,
     UI_BSP,
-    JK_ENT,
+    JK_ODIA,
     IO_ARIN,
     KL_ADIA,
     LSCLN_ODIA,

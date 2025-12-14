@@ -28,7 +28,7 @@
 static uint16_t auto_pointer_layer_timer = 0;
 
 #    ifndef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS
-#        define CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS 500
+#        define CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS 1000
 #    endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS
 
 #    ifndef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD
@@ -55,14 +55,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                         KC_Q   , KC_W   , KC_E   , KC_R   , KC_T,                                               KC_Y   , KC_U   , KC_I   , KC_O   , KC_P,
                         KC_A   , HOME_S , KC_D   , HOME_F , KC_G,                                               KC_H   , HOME_J , KC_K   , HOME_L , KC_SCLN,
                         KC_Z   , KC_X   , KC_C   , HOME_V , KC_B,                                               KC_N   , HOME_M , KC_COMM, KC_DOT , KC_SLSH,
-                                                            LSFT_SPC, TD(TD_NUM), KC_ESC,                TD(TD_SYM), LSFT_ENT
+                                                            LSFT_SPC, TD(TD_NUM), ESC_CAP,           TD(TD_SYM), LSFT_ENT
                        ),
 	[_COLEMAK_DH] = LAYOUT(
 
                         KC_Q   , KC_W   , KC_F   , KC_P   , KC_B,                                               KC_J   , KC_L   , KC_U   , KC_Y   , KC_SCLN,
                         HOME_A , CDH_HOME_R, KC_S, CDH_HOME_T , KC_G,                                           KC_M   , CDH_HOME_N , KC_E   , CDH_HOME_I , CDH_HOME_O,
                         KC_Z   , KC_X   , KC_C   , KC_D   , KC_V,                                               KC_K   , KC_H   , KC_COMM, KC_DOT , KC_SLSH,
-                                                            LSFT_SPC, TD(TD_NUM), KC_ESC,       TD(TD_SYM), LSFT_ENT
+                                                            LSFT_SPC, TD(TD_NUM), ESC_CAP,  TD(TD_SYM), LSFT_ENT
                        ),
         /*
          * _UCIS Is used for unicode input, the UCIS system requires basic keycodes A-Z, a-z, 0-9 ONLY, no mod-taps, homerow-mods, etc...
