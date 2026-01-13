@@ -19,6 +19,14 @@ enum keycodes {
     SNEKCAS,
 };
 
+
+#ifndef OS_LSFT
+#define OS_LSFT OSM(MOD_LSFT)
+#endif
+#ifndef OS_RSFT
+#define OS_RSFT OSM(MOD_RSFT)
+#endif
+
 enum layer_names { _BASE = 0, _COLEMAK_DH, _UCIS, _SYMBOLS, _NUMPAD, _NAV, _FUNCTION, _MOUSE, _UNUSED_3, _UNUSED_4, _UNUSED_5, _UNUSED_6, _UNUSED_7, _UNUSED_8, _UNUSED_9, _UNUSED_10, _UNUSED_11 };
 
 #define SYM MO(_SYMBOLS)
@@ -43,7 +51,7 @@ enum layer_names { _BASE = 0, _COLEMAK_DH, _UCIS, _SYMBOLS, _NUMPAD, _NAV, _FUNC
 #define CDH_HOME_I LALT_T(KC_I)   /*COLEMAK-DH*/
 #define HOME_SCLN LGUI_T(KC_SCLN) /*QWERY*/
 #define CDH_HOME_O LGUI_T(KC_O)   /*COLEMAK-DH*/
-#define LSFT_ENT RSFT_T(KC_ENT)
+#define RSFT_ENT RSFT_T(KC_ENT)
 #define LSFT_SPC LSFT_T(KC_SPC)
 
 /*

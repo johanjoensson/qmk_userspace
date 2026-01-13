@@ -62,7 +62,6 @@ enum {
     TD_SYM,
     TD_NUM,
     TD_MOUSE,
-    TD_CAPWORD,
 };
 
 #define ESC_CAP TD(TD_ESC_CAPS)

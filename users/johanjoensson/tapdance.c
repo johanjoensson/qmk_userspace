@@ -255,32 +255,6 @@ void quad_dance_layer_reset(tap_dance_state_t *state, void *user_data) {
     quad_tap->tap_state->state = TD_NONE;
 }
 
-#include "features/casemodes.h"
-void caps_word_dance_finished(tap_dance_state_t *state, void *user_data)
-{
-     td_state_t dance_state = cur_dance(state);
-     switch(dance_state){
-             case TD_SINGLE_TAP:
-                     enable_caps_word();
-                     enable_xcase_with(KC_UNDS);
-                     break;
-             case TD_SINGLE_HOLD:
-                     break;
-             case TD_DOUBLE_TAP:
-                     enable_xcase_with(KC_UNDS);
-                     break;
-             case TD_DOUBLE_HOLD:
-             case TD_DOUBLE_SINGLE_TAP:
-             case TD_TRIPLE_TAP:
-             case TD_TRIPLE_HOLD:
-             default:
-                     break;
-     }
-}
-
-void caps_word_dance_reset(tap_dance_state_t *state, void *user_data)
-{}
-
 
 tap_dance_action_t tap_dance_actions[] = {
     [TD_LEFT_HOME] = ACTION_TAP_DANCE_DOUBLE(KC_LEFT, KC_HOME),
@@ -293,5 +267,4 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_SYM] = ACTION_TAP_DANCE_TRIPLE_TAP_HOLD_LAYER(_SYMBOLS, _SYMBOLS, _SYMBOLS, _NAV, _MOUSE, 255),
     [TD_NUM] = ACTION_TAP_DANCE_TRIPLE_TAP_HOLD_LAYER(_NUMPAD, _NUMPAD, _NUMPAD, _NAV, _MOUSE, 255),
     [TD_MOUSE] = ACTION_TAP_DANCE_DOUBLE_TAP_HOLD_LAYER(_MOUSE, _MOUSE, _MOUSE, _MOUSE),
-    [TD_CAPWORD] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, caps_word_dance_finished, caps_word_dance_reset),
 };

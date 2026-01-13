@@ -1,5 +1,4 @@
 INTROSPECTION_KEYMAP_C = johanjoensson.c
-# SRC += johanjoensson.c
 
 ifeq ($(strip $(RGBLIGHT_ENABLE)), yes)
   # Include my fancy rgb functions source here
@@ -42,11 +41,4 @@ endif
 ifeq ($(strip $(UNICODE_MAP_ENABLE)), yes)
   # Include my fancy unicode map functions source here
   SRC += unicode_map.c
-endif
-ifeq ($(strip $(CAPS_WORD_ENABLE)), yes)
-  # Include my fancy caps_word functions source here
-  SRC += caps_word.c
-else
-	# if not using CAPS_WORD, use casemodes instead
-  SRC += features/casemodes.c
 endif

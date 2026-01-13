@@ -1,0 +1,3 @@
+[submodule "modules/ohshitgorillas/xcase"]
+	path = modules/ohshitgorillas/xcase
+	url = https://github.com/ohshitgorillas/qmk-xcase.git

@@ -22,6 +22,9 @@
 #    define RIGHT_ANIMATION
 #endif
 
+#ifdef CAPS_WORD_ENABLE
+#    define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+#endif
 #ifdef RGB_MATRIX_ENABLE
 #    define RGB_MATRIX_DEFAULT_ON false
 #    define RGB_MATRIX_SOLID_REACTIVE_GRADIENT_MODE

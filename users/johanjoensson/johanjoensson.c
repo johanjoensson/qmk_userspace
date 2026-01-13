@@ -1,8 +1,5 @@
 #include QMK_KEYBOARD_H
 #include "johanjoensson.h"
-#ifndef CAPS_WORD_ENABLE
-#include "features/casemodes.h"
-#endif
 
 #ifdef COMBO_ENABLE
 #include "combos.c"
@@ -24,11 +21,6 @@ uint8_t mod_state;
 bool key_pressed = false;
 uint16_t SH_LEAD_TIMER = 0;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-#ifndef CAPS_WORD_ENABLE
-        if (!process_case_modes(keycode, record)) {
-                return false;
-        }
-#endif
         if (record->event.pressed){
                 key_pressed = true;
         }
@@ -183,6 +175,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                                 del_mods(MOD_MASK_SHIFT | MOD_MASK_CTRL);
                         }
                         break;
+#ifdef LEADER_ENABLE
                 /* Custom keycode for emulating mod tap for QK_LEAD and SHIFT */
                 case CC_SHLD:
                         if (record->event.pressed) {
@@ -194,11 +187,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                                 if (key_pressed){
                                         break;
                                 }
-                                if (timer_elapsed(SH_LEAD_TIMER) < TAPPING_TERM) {
+                                if (timer_elapsed(SH_LEAD_TIMER) < LEADER_TIMEOUT) {
                                         leader_start();
                                 }
                         }
                         break;
+#endif
                 // End UCIS input
                 // ESC, ENT, SPC, ESC can all be used to end UCIS input and thus should turn off the _UCIS layer
                 case KC_ENT:
@@ -225,18 +219,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                                 }
                                 return false;
                         }
-#else
-                case CAPWORD:
-                        if (record->event.pressed) {
-                                enable_caps_word();
-                                enable_xcase_with(KC_UNDS);
-                        }
-                        return false;
-                case SNEKCAS:
-                        if (record->event.pressed) {
-                                enable_xcase_with(KC_UNDS);
-                        }
-                        return false;
 #endif
                         break;
                 default:

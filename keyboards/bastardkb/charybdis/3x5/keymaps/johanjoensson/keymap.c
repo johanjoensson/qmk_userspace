@@ -55,14 +55,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                         KC_Q   , KC_W   , KC_E   , KC_R   , KC_T,                                               KC_Y   , KC_U   , KC_I   , KC_O   , KC_P,
                         KC_A   , HOME_S , KC_D   , HOME_F , KC_G,                                               KC_H   , HOME_J , KC_K   , HOME_L , KC_SCLN,
                         KC_Z   , KC_X   , KC_C   , HOME_V , KC_B,                                               KC_N   , HOME_M , KC_COMM, KC_DOT , KC_SLSH,
-                                                            LSFT_SPC, TD(TD_NUM), ESC_CAP,           TD(TD_SYM), LSFT_ENT
+                                                            LSFT_SPC, TD(TD_NUM), ESC_CAP,           TD(TD_SYM), RSFT_ENT
                        ),
 	[_COLEMAK_DH] = LAYOUT(
 
                         KC_Q   , KC_W   , KC_F   , KC_P   , KC_B,                                               KC_J   , KC_L   , KC_U   , KC_Y   , KC_SCLN,
                         HOME_A , CDH_HOME_R, KC_S, CDH_HOME_T , KC_G,                                           KC_M   , CDH_HOME_N , KC_E   , CDH_HOME_I , CDH_HOME_O,
                         KC_Z   , KC_X   , KC_C   , KC_D   , KC_V,                                               KC_K   , KC_H   , KC_COMM, KC_DOT , KC_SLSH,
-                                                            LSFT_SPC, TD(TD_NUM), ESC_CAP,  TD(TD_SYM), LSFT_ENT
+                                                            LSFT_SPC, TD(TD_NUM), ESC_CAP,  TD(TD_SYM), RSFT_ENT
                        ),
         /*
          * _UCIS Is used for unicode input, the UCIS system requires basic keycodes A-Z, a-z, 0-9 ONLY, no mod-taps, homerow-mods, etc...
@@ -77,10 +77,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          * _SYMBOLS gives access to a number row as well as a bunch of symbols. Leader key on left thumb, as well as access to the _FUNCTION layer.
          */
 	[_SYMBOLS] = LAYOUT(
-                        KC_EXLM, KC_AT  , KC_HASH, KC_DLR , KC_PERC,                             KC_CIRC, KC_AMPR, KC_LCBR, KC_RCBR, KC_ASTR,
-                        CC_ALPH, CC_BETA, CC_DELT, CC_PI  , TD_BSLS,                             KC_MINS, KC_EQL , KC_LPRN, KC_RPRN, KC_QUOT,
-                        CC_GAMM, CC_SIGM, CC_RHO , CC_SNEK, TD_PIPE,                             KC_UNDS, KC_PLUS, KC_LBRC, KC_RBRC, KC_TILD,
-                                                            CC_SHLD, MO(_NAV), _______,     TG(_SYMBOLS), KC_RSFT
+                        KC_EXLM, KC_AT  , KC_HASH, KC_DLR , KC_PERC,                                              KC_CIRC, KC_AMPR, KC_LCBR, KC_RCBR, KC_ASTR,
+                        CC_ALPH, CC_BETA, CC_DELT, CC_PI  , TD_BSLS,                                              KC_MINS, KC_EQL , KC_LPRN, KC_RPRN, KC_QUOT,
+                        CC_GAMM, CC_SIGM, CC_RHO , CC_SNEK, TD_PIPE,                                              KC_UNDS, KC_PLUS, KC_LBRC, KC_RBRC, KC_TILD,
+                                                            CC_SHLD, LT(_NAV, XC_CML), _______,     TG(_SYMBOLS), KC_RSFT
                         ),
         /*
          * _NUMPAD gives acces to a numpad like layout on the right hand, RGB settings on the left and access to the _FUNCTION layer on the right thumb.
@@ -89,14 +89,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 DF(_COLEMAK_DH), UG_SATU, UG_HUEU, UG_VALU, UG_NEXT,                                 KC_ASTR, KC_7   , KC_8   , KC_9   , KC_MINS,
                         UG_TOGG, UG_SATD, UG_HUED, UG_VALD, UG_PREV,                                 KC_SLSH, KC_4   , KC_5   , KC_6   , KC_PLUS,
                       DF(_BASE), XXXXXXX, DT_UP  , DT_DOWN, DT_PRNT,                                 KC_COMM, KC_1   , KC_2   , KC_3   , KC_DOT,
-                                                            _______, TG(_NUMPAD), _______,          MO(_NAV), RSFT_T(KC_0)
+                                                            _______, TG(_NUMPAD), _______,          LT(_NAV, XC_SNK), RSFT_T(KC_0)
                         ),
         /*
          * Access backspace and quotation symbols. As well as arrow navigation (vim layout) and home, page up, page down, and end keys with double taps.
          * Left thumb triggers Caps Word.
          */
 	[_NAV] = LAYOUT(
-                        KC_KB_VOLUME_UP  , KC_F7  , KC_F8  , KC_F9  , KC_F10 ,                              TD(TD_CAPWORD), KC_COPY, KC_PSTE, XXXXXXX, XXXXXXX,
+                        KC_KB_VOLUME_UP  , KC_F7  , KC_F8  , KC_F9  , KC_F10 ,                              _______, KC_COPY, KC_PSTE, XXXXXXX, XXXXXXX,
                         KC_KB_VOLUME_DOWN, KC_F4  , KC_F5  , KC_F6  , KC_F11 ,                              TD_LEFT, TD_DOWN, TD_UP  , TD_RGHT, XXXXXXX,
                         KC_KB_MUTE       , KC_F1  , KC_F2  , KC_F3  , KC_F12 ,                              KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX,
                                                                       _______, TG(_NAV), _______,          TG(_NAV), _______
